@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nim')->unique();
             $table->string('nama');
-            $table->enum('fakultas',['MIPA','TEKNIK','PGSD']);
+            $table->string('alamat');
+            $table->enum('jenis kelamin',['Laki-laki','Perempuan']);
+            $table->enum('fakultas',['MIPA','TEKNIK','PGSD','FED','FKIK','FH']);
             $table->timestamps();
         });
     }

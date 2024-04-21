@@ -32,10 +32,18 @@ class StudentResource extends Resource
                         TextInput::make('nim')->required()->unique(ignorable:fn
                     ($record) => $record), 
                         TextInput::make('nama')->required(),
+                        TextInput::make('alamat')->required(),
+                        Select::make('jenis kelamin')->options([
+                            'Laki-laki'=>'Laki-laki',
+                            'Perempuan'=>'Perempuan'
+                        ]),
                         Select::make('fakultas')->options([
                             'MIPA'=>'MIPA',
                             'TEKNIK'=>'TEKNIK',
-                            'PGSD'=>'PGSD'
+                            'PGSD'=>'PGSD',
+                            'FED'=>'FED',
+                            'FKIK'=>'FKIK',
+                            'FH'=>'FH'
                         ])
                     ])
                     ->columns(2),
@@ -48,6 +56,8 @@ class StudentResource extends Resource
             ->columns([
                  TextColumn::make('nim')->sortable()->searchable(),
                  TextColumn::make('nama')->sortable()->searchable(),
+                 TextColumn::make('jenis kelamin')->sortable()->searchable(),
+                 TextColumn::make('alamat')->sortable()->searchable(),
                  TextColumn::make('fakultas')->sortable()->searchable(),
             ])
             ->filters([
